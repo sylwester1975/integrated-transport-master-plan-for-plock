@@ -401,16 +401,16 @@ clear: both !important;
    5. REGUŁY DRUKU I INTERAKCJI DLA LINKÓW (WERSJA ANGIELSKA)
    ========================================================================== */
 
-/* --- INTERAKCJA LINKÓW NA EKRANIE --- */
+/* --- SCREEN INTERACTION FOR LINKS --- */
 p a, li a, td a {
-    color: #1a365d !important;         /* Prestiżowy granat w stanie spoczynku */
+    color: #1a365d !important;         /* Deep navy in rest state */
     text-decoration: none !important;  
     font-weight: 500;
     transition: color 0.2s ease;       
 }
 
 p a:hover, li a:hover, td a:hover {
-    color: #2563eb !important;         /* Jasny błękit pod kursorem */
+    color: #2563eb !important;         /* Bright blue on hover */
     text-decoration: underline !important; 
     text-underline-offset: 4px;        
 }
@@ -443,10 +443,11 @@ p a:hover, li a:hover, td a:hover {
         height: 0 !important;
     }
     
-    .bibliografia a {
+    .bibliography a {
         color: #1a365d !important;       
         text-decoration: none !important; 
         font-weight: 600 !important;      
+        cursor: default !important;
     }
     
     h1, h2, h3, h4 {
