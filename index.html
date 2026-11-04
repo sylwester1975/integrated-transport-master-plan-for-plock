@@ -416,15 +416,9 @@ p a:hover, li a:hover, td a:hover {
 }
 
 /* --- REGUŁA EKRANOWA I CYFROWA PDF --- */
-/* [ROZWIĄZANIE NAJWYŻSZEJ PRECYZJI] 
-   Celujemy wyłącznie w spany, które w środku mają linki do gddkia, plk-sa, zsk, portpolska lub gov. 
-   Dzięki temu ukrywamy tylko te adresy bibliograficzne, a Tytuł i Streszczenie są w pełni bezpieczne! */
-span:has(a[href*="gddkia"]), 
-span:has(a[href*="plk-sa"]), 
-span:has(a[href*="zsk"]), 
-span:has(a[href*="portpolska"]), 
-span:has(a[href*="gov.pl"]),
-.tylko-druk, .only-print {
+/* [STABILNE ROZWIĄZANIE] Ukrywamy wszystkie spany wewnątrz jakichkolwiek list (li).
+   Tytuł strony i streszczenie zarządcze nie używają tagów li, więc są w 100% bezpieczne. */
+li span, .tylko-druk, .only-print {
     display: none !important;
 }
 
@@ -460,29 +454,19 @@ a::after, a[href]::after {
         content: none !important;
     }
     
-    /* Przywracamy dopiski bibliograficzne wyłącznie na papierze */
-    span:has(a[href*="gddkia"]), 
-    span:has(a[href*="plk-sa"]), 
-    span:has(a[href*="zsk"]), 
-    span:has(a[href*="portpolska"]), 
-    span:has(a[href*="gov.pl"]),
-    .tylko-druk, .only-print {
+    /* Przywracamy dopiski wewnątrz list wyłącznie na papierze */
+    li span, .tylko-druk, .only-print {
         display: inline !important;
     }
 
     /* Formatowanie wyglądu tekstu wewnątrz nawiasów na papierze */
-    span:has(a[href*="gddkia"]) a, 
-    span:has(a[href*="plk-sa"]) a, 
-    span:has(a[href*="zsk"]) a, 
-    span:has(a[href*="portpolska"]) a, 
-    span:has(a[href*="gov.pl"]) a,
-    .tylko-druk a, .only-print a {
+    li span a, .tylko-druk a, .only-print a {
         color: #333333 !important;
         text-decoration: none !important;
         font-weight: normal !important;
     }
     
-    .bibliography a, li a {
+    li a {
         color: #1a365d !important;       
         text-decoration: none !important; 
         font-weight: 600 !important;      
