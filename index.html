@@ -547,26 +547,46 @@ a:hover {
 }
 
 /* ==========================================================================
-   SYSTEM HYBRYDOWEGO WYDRUKU BIBLIOGRAFII
+   PRINT AND LINK STYLES FOR BIBLIOGRAPHY REGISTER (ENGLISH VERSION)
    ========================================================================== */
-.only-print {
-    display: none !important;          /* Ukryte na ekranie komputera i w cyfrowym PDF */
+
+/* --- SCREEN RULE --- */
+/* Completely hides raw URL parentheses when viewing the document online */
+.tylko-druk {
+    display: none;
 }
 
+/* --- PRINT AND PDF GENERATION RULE --- */
 @media print {
-    /* Ukrywamy tekst "Link do dokumentu" na papierze */
-    .bibliografia a {
-        display: none !important;
-    }
-
-    /* Ujawniamy surowy adres URL wyłącznie na wydrukowanej kartce */
-    .only-print {
+    /* Forces smooth revealing and professional formatting of the URL footnote on paper */
+    .tylko-druk {
         display: inline !important;
-        font-size: 0.85rem !important;  
-        color: #333333 !important;     
-        font-style: italic !important; 
+        font-style: italic !important;
+        font-size: 14px !important;     /* Precisely defined footnote font size */
+        color: #333333 !important;      /* Color semantically matched to the rest of the description */
+    }
+    
+    /* All hyperlinks within the bibliography lose interactive colors and underlines on paper */
+    .bibliography a {
+        color: #333333 !important;       
+        text-decoration: none !important; 
+        font-weight: 600 !important;      /* Institution name remains bold on paper */
+        cursor: default !important;
+    }
+    
+    /* The URL address inside parentheses inherits the container style but loses bolding for better readability */
+    .tylko-druk a {
+        color: inherit !important;
+        text-decoration: none !important;
+        font-weight: normal !important;   
+    }
+    
+    /* Prevents native browser engines from automatically and chaoticly appending URLs */
+    a::after {
+        content: "" !important;
     }
 }
+
 </style>
 </head>
 <body>
@@ -1080,21 +1100,21 @@ a:hover {
     This Master Plan and the attached conceptual drawings have been developed based on independent analysis as well as publicly available, official strategic documents, development plans, and topographic base maps from the following institutions:
 </p>
 
-<ul class="bibliography" style="padding-left: 20px;">
-    <li style="margin-bottom: 15px; text-align: justify; color: #333333;">
-        <a href="https://kpd.gddkia.gov.pl/index.php/en/homepage/" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">General Directorate for National Roads and&nbsp;Motorways (GDDKiA)</a><span class="only-print"> (Online access: kpd.gddkia.gov.pl/index.php/en/homepage)</span>&nbsp;– regarding current and prospective development plans for the expressway and motorway network in central Poland, road construction status maps, and corridor studies;
+<ul class="bibliography" style="padding-left: 20px; color: #333333;">
+    <li style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://kpd.gddkia.gov.pl/index.php/en/homepage/" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">General Directorate for National Roads and&nbsp;Motorways (GDDKiA)</a><span class="tylko-druk"> (Online access: <a href="https://kpd.gddkia.gov.pl/index.php/en/homepage/" target="_blank" style="color: inherit; text-decoration: none;">kpd.gddkia.gov.pl/index.php/en/homepage</a>)</span>&nbsp;– regarding current and prospective development plans for the expressway and motorway network in central Poland, road construction status maps, and corridor studies;
     </li>
-    <li style="margin-bottom: 15px; text-align: justify; color: #333333;">
-        <a href="https://en.plk-sa.pl/" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">PKP Polskie Linie Kolejowe S.A. (PKP PLK)</a><span class="only-print"> (Online access: en.plk-sa.pl)</span>&nbsp;– regarding the modernisation assumptions for the existing railway network as well as regional assumptions and consultations within the framework of the "Integrated Railway Network" (ZSK) project;
+    <li style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://en.plk-sa.pl/" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">PKP Polskie Linie Kolejowe S.A. (PKP PLK)</a><span class="tylko-druk"> (Online access: <a href="https://en.plk-sa.pl/" target="_blank" style="color: inherit; text-decoration: none;">en.plk-sa.pl</a>)</span>&nbsp;– regarding the modernisation assumptions for the existing railway network as well as regional assumptions and consultations within the framework of the "Integrated Railway Network" (ZSK) project;
     </li>
-    <li style="margin-bottom: 15px; text-align: justify; color: #333333;">
-        <a href="https://zsk.gov.pl/en/" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Integrated Railway Network (ZSK Government Portal)</a><span class="only-print"> (Online access: zsk.gov.pl/en)</span>&nbsp;– regarding the official, multi-year development plan and schematic layout of transport corridors, new railway lines, and intermodal terminals;
+    <li style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://zsk.gov.pl/en/" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Integrated Railway Network (ZSK Government Portal)</a><span class="tylko-druk"> (Online access: <a href="https://zsk.gov.pl/en/" target="_blank" style="color: inherit; text-decoration: none;">zsk.gov.pl/en</a>)</span>&nbsp;– regarding the official, multi-year development plan and schematic layout of transport corridors, new railway lines, and intermodal terminals;
     </li>
-    <li style="margin-bottom: 15px; text-align: justify; color: #333333;">
-        <a href="https://portpolska.pl/en/" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Port Polska (Central Communication Port)</a><span class="only-print"> (Online access: portpolska.pl/en)</span>&nbsp;– regarding the official strategic plans and corridors of the planned CMK North railway trunk line, the investment programme for the transport hub in Baranów, and associated strategic logistics centres;
+    <li style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://portpolska.pl/en/" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Port Polska (Central Communication Port)</a><span class="tylko-druk"> (Online access: <a href="https://portpolska.pl/en/" target="_blank" style="color: inherit; text-decoration: none;">portpolska.pl/en</a>)</span>&nbsp;– regarding the official strategic plans and corridors of the planned CMK North railway trunk line, the investment programme for the transport hub in Baranów, and associated strategic logistics centres;
     </li>
-    <li style="margin-bottom: 0; text-align: justify; color: #333333;">
-        <a href="https://www.gov.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Government and Local Administration Bodies (Gov.pl Portal)</a><span class="only-print"> (Online access: gov.pl)</span>&nbsp;– regarding publicly available central development strategies (including the Ministry of Infrastructure), studies of development conditions, spatial development plans, and local development strategies for the energy transition and transport network of the Płock region.
+    <li style="margin-bottom: 0; text-align: justify;">
+        <a href="https://www.gov.pl" target="_blank" style="color: #1a365d; text-decoration: none; font-weight: 600;">Government and Local Administration Bodies (Gov.pl Portal)</a><span class="tylko-druk"> (Online access: <a href="https://www.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">gov.pl</a>)</span>&nbsp;– regarding publicly available central development strategies (including the Ministry of Infrastructure), studies of development conditions, spatial development plans, and local development strategies for the energy transition and transport network of the Płock region.
     </li>
 </ul>
 
