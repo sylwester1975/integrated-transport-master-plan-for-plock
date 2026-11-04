@@ -416,9 +416,9 @@ p a:hover, li a:hover, td a:hover {
 }
 
 /* --- REGUŁA EKRANOWA I CYFROWA PDF --- */
-/* [BEZWZGLĘDNE ROZWIĄZANIE] Wyłapujemy spany zawierające tekst "Online access" 
-   i ukrywamy je na ekranie, ignorując klasy i pamięć podręczną */
-span, .tylko-druk, .only-print {
+/* [PRECYZYJNE ROZWIĄZANIE] Ukrywamy spany z adresami TYLKO wewnątrz listy bibliografii.
+   Tytuł strony i streszczenie zarządcze są teraz w 100% bezpieczne. */
+ul.bibliography span, .tylko-druk, .only-print {
     display: none !important;
 }
 
@@ -454,13 +454,13 @@ a::after, a[href]::after {
         content: none !important;
     }
     
-    /* Przywracamy spany z adresami wyłącznie na papierze */
-    span, .tylko-druk, .only-print {
+    /* Przywracamy spany z adresami w bibliografii wyłącznie na papierze */
+    ul.bibliography span, .tylko-druk, .only-print {
         display: inline !important;
     }
 
     /* Formatowanie wyglądu tekstu wewnątrz nawiasów na papierze */
-    span a, .tylko-druk a, .only-print a {
+    ul.bibliography span a, .tylko-druk a, .only-print a {
         color: #333333 !important;
         text-decoration: none !important;
         font-weight: normal !important;
@@ -507,7 +507,6 @@ a::after, a[href]::after {
         clear: both !important;
         break-before: page !important;
         page-break-before: always !important;
-        height: 0 !important;
     }
     .custom-table, .signature-wrapper {
         margin-top: 50px !important;
