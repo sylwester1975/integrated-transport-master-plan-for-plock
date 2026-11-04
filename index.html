@@ -416,12 +416,12 @@ p a:hover, li a:hover, td a:hover {
 }
 
 /* --- REGUŁA EKRANOWA I CYFROWA PDF --- */
-/* Bezwzględne ukrycie surowych adresów URL na monitorach oraz w cyfrowym PDF */
-.only-print, .tylko-druk {
+/* [ROZWIĄZANIE] Bezwzględne ukrycie KAŻDEGO spana w bibliografii na ekranie i w cyfrowym PDF */
+.bibliography li span, .bibliography span {
     display: none !important;
 }
 
-/* Wyłączamy domyślne, automatyczne wyciąganie adresów URL z linków przez przeglądarkę */
+/* Całkowite wyłączenie automatycznego generowania adresów przez przeglądarkę */
 a::after, a[href]::after {
     content: none !important;
 }
@@ -448,18 +448,18 @@ a::after, a[href]::after {
         height: 0 !important;
     }
     
-    /* Wyłączamy automatyczne dopiski przeglądarki również wewnątrz bloku druku */
+    /* Wyłączenie automatycznych dopisków przeglądarki w druku */
     a::after, a[href]::after {
         content: none !important;
     }
     
-    /* Pokazujemy ręcznie przygotowane adresy w nawiasach z HTML wyłącznie na papierze */
-    .bibliography .only-print, .bibliography .tylko-druk {
+    /* [ROZWIĄZANIE] Wymuszenie pokazania spanów z adresami wyłącznie na papierze */
+    .bibliography li span, .bibliography span {
         display: inline !important;
     }
 
-    /* Formatowanie wyglądu ręcznych adresów w nawiasach */
-    .bibliography .only-print a, .bibliography .tylko-druk a {
+    /* Formatowanie wyglądu tekstu wewnątrz nawiasów na papierze */
+    .bibliography li span a, .bibliography span a {
         color: #333333 !important;
         text-decoration: none !important;
         font-weight: normal !important;
