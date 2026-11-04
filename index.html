@@ -421,6 +421,11 @@ p a:hover, li a:hover, td a:hover {
     display: none !important;
 }
 
+/* Wyłączamy domyślne, automatyczne wyciąganie adresów URL z linków przez przeglądarkę */
+a::after, a[href]::after {
+    content: none !important;
+}
+
 /* --- REGUŁY RESTRYKCYJNE WYŁĄCZNIE DLA FIZYCZNEGO WYDRUKU (PAPIER) --- */
 @media print {
     @page {
@@ -443,18 +448,21 @@ p a:hover, li a:hover, td a:hover {
         height: 0 !important;
     }
     
-    /* [ROZWIĄZANIE] Aktywujemy adresy w nawiasach TYLKO wtedy, gdy urządzenie drukujące 
-       jest rzeczywistą drukarką (sprawdzamy rozdzielczość plamki drukującej w dpi).
-       Większość wirtualnych ploterów PDF ignoruje ten warunek, a fizyczne drukarki go czytają. */
-    @media (min-resolution: 150dpi) and (monochrome: 0), (min-resolution: 72dpi) {
-        .bibliography .only-print, .bibliography .tylko-druk {
-            display: inline !important;
-        }
-        .bibliography .only-print a, .bibliography .tylko-druk a {
-            color: #333333 !important;
-            text-decoration: none !important;
-            font-weight: normal !important;
-        }
+    /* Wyłączamy automatyczne dopiski przeglądarki również wewnątrz bloku druku */
+    a::after, a[href]::after {
+        content: none !important;
+    }
+    
+    /* Pokazujemy ręcznie przygotowane adresy w nawiasach z HTML wyłącznie na papierze */
+    .bibliography .only-print, .bibliography .tylko-druk {
+        display: inline !important;
+    }
+
+    /* Formatowanie wyglądu ręcznych adresów w nawiasach */
+    .bibliography .only-print a, .bibliography .tylko-druk a {
+        color: #333333 !important;
+        text-decoration: none !important;
+        font-weight: normal !important;
     }
     
     .bibliography a {
