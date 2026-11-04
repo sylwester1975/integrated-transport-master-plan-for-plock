@@ -415,18 +415,6 @@ p a:hover, li a:hover, td a:hover {
     text-underline-offset: 4px;        
 }
 
-/* --- REGUŁA EKRANOWA I CYFROWA PDF --- */
-/* [STABILNE ROZWIĄZANIE] Ukrywamy wszystkie spany wewnątrz jakichkolwiek list (li).
-   Tytuł strony i streszczenie zarządcze nie używają tagów li, więc są w 100% bezpieczne. */
-li span, .tylko-druk, .only-print {
-    display: none !important;
-}
-
-/* Całkowite wyłączenie automatycznego generowania adresów przez przeglądarkę */
-a::after, a[href]::after {
-    content: none !important;
-}
-
 /* --- REGUŁY RESTRYKCYJNE WYŁĄCZNIE DLA FIZYCZNEGO WYDRUKU (PAPIER) --- */
 @media print {
     @page {
@@ -449,24 +437,7 @@ a::after, a[href]::after {
         height: 0 !important;
     }
     
-    /* Wyłączenie automatycznych dopisków przeglądarki w druku */
-    a::after, a[href]::after {
-        content: none !important;
-    }
-    
-    /* Przywracamy dopiski wewnątrz list wyłącznie na papierze */
-    li span, .tylko-druk, .only-print {
-        display: inline !important;
-    }
-
-    /* Formatowanie wyglądu tekstu wewnątrz nawiasów na papierze */
-    li span a, .tylko-druk a, .only-print a {
-        color: #333333 !important;
-        text-decoration: none !important;
-        font-weight: normal !important;
-    }
-    
-    li a {
+    .bibliography a {
         color: #1a365d !important;       
         text-decoration: none !important; 
         font-weight: 600 !important;      
@@ -488,6 +459,7 @@ a::after, a[href]::after {
         margin-top: 55px !important;
         padding-top: 0 !important;
     }
+    
     hr {
         break-after: avoid !important;
         page-break-after: avoid !important;
@@ -495,6 +467,7 @@ a::after, a[href]::after {
         margin-bottom: 15px !important;
         background: #cbd5e0 !important;
     }
+    
     .highlight-box, .toc-box {
         padding: 15px !important;
     }
@@ -507,12 +480,24 @@ a::after, a[href]::after {
         clear: both !important;
         break-before: page !important;
         page-break-before: always !important;
+        height: 0 !important;
     }
     .custom-table, .signature-wrapper {
         margin-top: 50px !important;
         clear: both !important;
     }
+
+    /* [TUTAJ] Wymuszamy pokazanie adresów na papierze – na samym końcu bloku druku, przed czcionką globalną */
+    .tylko-druk {
+        display: inline !important;
+    }
+    .tylko-druk a {
+        color: #333333 !important;
+        text-decoration: none !important;
+        font-weight: normal !important;
+    }
 }
+
 /* BLOK DLA CZCIONKI GLOBALNEJ */
 @import url('https://googleapis.com');
 body, h1, h2, h3, h4, th, td, .title, .btn {
@@ -1032,7 +1017,7 @@ td, th {
     
     <hr>
 
-    <h2 id="sources" style="margin-bottom: 33px;">BASELINE MATERIALS AND&nbsp;DATA&nbsp;SOURCES</h2>
+<h2 id="sources" style="margin-bottom: 33px;">BASELINE MATERIALS AND&nbsp;DATA&nbsp;SOURCES</h2>
 
 <p style="text-align: justify;">
     This Master Plan and the attached conceptual drawings have been developed based on independent analysis as well as publicly available, official strategic documents, development plans, and topographic base maps from the following institutions:
@@ -1040,22 +1025,22 @@ td, th {
 
 <ul class="bibliography" style="padding-left: 20px; color: #333333;">
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://gddkia.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">General Directorate for National Roads and&nbsp;Motorways (GDDKiA)</a><span class="tylko-druk"> (Online access: <a href="https://gddkia.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">kpd.gddkia.gov.pl/index.php/en/homepage</a>)</span>&nbsp;– regarding current and prospective development plans for the expressway and motorway network in central Poland, road construction status maps, and corridor studies;
+        <a href="https://gddkia.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">General Directorate for National Roads and&nbsp;Motorways (GDDKiA)</a><span class="tylko-druk" style="display: none !important;"> (Online access: <a href="https://gddkia.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">kpd.gddkia.gov.pl/index.php/en/homepage</a>)</span>&nbsp;– regarding current and prospective development plans for the expressway and motorway network in central Poland, road construction status maps, and corridor studies;
     </li>
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://plk-sa.pl" target="_blank" style="color: #1a365d; font-weight: 600;">PKP Polskie Linie Kolejowe S.A. (PKP PLK)</a><span class="tylko-druk"> (Online access: <a href="https://plk-sa.pl" target="_blank" style="color: inherit; text-decoration: none;">en.plk-sa.pl</a>)</span>&nbsp;– regarding the modernisation assumptions for the existing railway network as well as regional assumptions and consultations within the framework of the "Integrated Railway Network" (ZSK) project;
+        <a href="https://plk-sa.pl" target="_blank" style="color: #1a365d; font-weight: 600;">PKP Polskie Linie Kolejowe S.A. (PKP PLK)</a><span class="tylko-druk" style="display: none !important;"> (Online access: <a href="https://plk-sa.pl" target="_blank" style="color: inherit; text-decoration: none;">en.plk-sa.pl</a>)</span>&nbsp;– regarding the modernisation assumptions for the existing railway network as well as regional assumptions and consultations within the framework of the "Integrated Railway Network" (ZSK) project;
     </li>
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://zsk.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Integrated Railway Network (ZSK Government Portal)</a><span class="tylko-druk"> (Online access: <a href="https://zsk.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">zsk.gov.pl/en</a>)</span>&nbsp;– regarding the official, multi-year development plan and schematic layout of transport corridors, new railway lines, and intermodal terminals;
+        <a href="https://zsk.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Integrated Railway Network (ZSK Government Portal)</a><span class="tylko-druk" style="display: none !important;"> (Online access: <a href="https://zsk.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">zsk.gov.pl/en</a>)</span>&nbsp;– regarding the official, multi-year development plan and schematic layout of transport corridors, new railway lines, and intermodal terminals;
     </li>
     <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://portpolska.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Port Polska (Central Communication Port)</a><span class="tylko-druk"> (Online access: <a href="https://portpolska.pl" target="_blank" style="color: inherit; text-decoration: none;">portpolska.pl/en</a>)</span>&nbsp;– regarding the official strategic plans and corridors of the planned CMK North railway trunk line, the investment programme for the transport hub in Baranów, and associated strategic logistics centres;
+        <a href="https://portpolska.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Port Polska (Central Communication Port)</a><span class="tylko-druk" style="display: none !important;"> (Online access: <a href="https://portpolska.pl" target="_blank" style="color: inherit; text-decoration: none;">portpolska.pl/en</a>)</span>&nbsp;– regarding the official strategic plans and corridors of the planned CMK North railway trunk line, the investment programme for the transport hub in Baranów, and associated strategic logistics centres;
     </li>
     <li style="margin-bottom: 0; text-align: justify;">
-        <a href="https://www.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Government and Local Administration Bodies (Gov.pl Portal)</a><span class="tylko-druk"> (Online access: <a href="https://www.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">gov.pl</a>)</span>&nbsp;– regarding publicly available central development strategies (including the Ministry of Infrastructure), studies of development conditions, spatial development plans, and local development strategies for the energy transition and transport network of the Płock region.
+        <a href="https://www.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Government and Local Administration Bodies (Gov.pl Portal)</a><span class="tylko-druk" style="display: none !important;"> (Online access: <a href="https://www.gov.pl" target="_blank" style="color: inherit; text-decoration: none;">gov.pl</a>)</span>&nbsp;– regarding publicly available central development strategies (including the Ministry of Infrastructure), studies of development conditions, spatial development plans, and local development strategies for the energy transition and transport network of the Płock region.
     </li>
 </ul>
-
+    
     <div class="signature-wrapper">
         <span class="signature-text-final">Sylwester Fiet &nbsp;|&nbsp; Płock, Poland &nbsp;|&nbsp; 2026</span>
     </div>
