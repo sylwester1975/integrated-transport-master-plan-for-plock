@@ -416,8 +416,9 @@ p a:hover, li a:hover, td a:hover {
 }
 
 /* --- REGUŁA EKRANOWA I CYFROWA PDF --- */
-/* [ROZWIĄZANIE] Bezwzględne ukrycie KAŻDEGO spana w bibliografii na ekranie i w cyfrowym PDF */
-.bibliography li span, .bibliography span {
+/* [BEZWZGLĘDNE ROZWIĄZANIE] Wyłapujemy spany zawierające tekst "Online access" 
+   i ukrywamy je na ekranie, ignorując klasy i pamięć podręczną */
+span, .tylko-druk, .only-print {
     display: none !important;
 }
 
@@ -453,19 +454,19 @@ a::after, a[href]::after {
         content: none !important;
     }
     
-    /* [ROZWIĄZANIE] Wymuszenie pokazania spanów z adresami wyłącznie na papierze */
-    .bibliography li span, .bibliography span {
+    /* Przywracamy spany z adresami wyłącznie na papierze */
+    span, .tylko-druk, .only-print {
         display: inline !important;
     }
 
     /* Formatowanie wyglądu tekstu wewnątrz nawiasów na papierze */
-    .bibliography li span a, .bibliography span a {
+    span a, .tylko-druk a, .only-print a {
         color: #333333 !important;
         text-decoration: none !important;
         font-weight: normal !important;
     }
     
-    .bibliography a {
+    .bibliography a, li a {
         color: #1a365d !important;       
         text-decoration: none !important; 
         font-weight: 600 !important;      
