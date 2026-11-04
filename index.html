@@ -416,7 +416,7 @@ p a:hover, li a:hover, td a:hover {
 }
 
 /* --- REGUŁA EKRANOWA I CYFROWA PDF --- */
-/* Bezwzględne ukrycie surowych adresów URL na monitorach */
+/* Bezwzględne ukrycie surowych adresów URL na monitorach (w trybie screen) */
 .tylko-druk, .only-print {
     display: none !important;
 }
@@ -493,24 +493,18 @@ p a:hover, li a:hover, td a:hover {
         clear: both !important;
     }
 
-    /* [ZMIANA STRATEGII] Wymuszamy pokazanie adresów na papierze TYLKO wtedy, 
-       gdy gęstość ekranu/urządzenia wywołującego druk odpowiada fizycznym właściwościom 
-       renderowania systemowego (np. min-gęstość pikseli urządzeń klienckich). 
-       Wirtualne skrypty generujące "surowy" PDF na Netlify pomijają zaawansowane 
-       zapytania @media o rozdzielczość i gęstość urządzeń, co zablokuje napisy w pliku. */
-    @media (min-color-index: 0) and (min-resolution: 110dpi) {
-        .tylko-druk, .only-print {
-            display: inline !important;
-            font-size: 0.85rem !important;
-            font-style: italic !important;
-        }
-        .tylko-druk a, .only-print a {
-            color: #333333 !important;
-            text-decoration: none !important;
-            font-weight: normal !important;
-            font-size: 0.85rem !important;
-            font-style: italic !important;
-        }
+    /* Wymuszamy stabilne pokazanie adresów w trybie wydruku (w małej kursywie) */
+    .tylko-druk, .only-print {
+        display: inline !important;
+        font-size: 0.85rem !important;
+        font-style: italic !important;
+    }
+    .tylko-druk a, .only-print a {
+        color: #333333 !important;
+        text-decoration: none !important;
+        font-weight: normal !important;
+        font-size: 0.85rem !important;
+        font-style: italic !important;
     }
 }
 
