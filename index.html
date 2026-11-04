@@ -500,7 +500,13 @@ p a:hover, li a:hover, td a:hover {
         clear: both !important;
     }
 }
-
+ /* [NOWE] WYJĄTEK DLA POBIERANIA: Jeśli JavaScript doda do body klasę .pobieranie-pdf,
+       wtedy i tylko wtedy ukrywamy adresy, aby nie trafiły do zapisanego pliku PDF */
+    body.pobieranie-pdf .tylko-druk, 
+    body.pobieranie-pdf .only-print {
+        display: none !important;
+    }
+}
 /* BLOK DLA CZCIONKI GLOBALNEJ */
 @import url('https://googleapis.com');
 body, h1, h2, h3, h4, th, td, .title, .btn {
@@ -1095,6 +1101,25 @@ td, th {
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') { closeLightbox(); }
         });
+
+        // --- SKRYPT UKRYWANIA ADRESÓW PODCZAS KLIKNIĘCIA PRZYCISKU POBIERZ ---
+document.addEventListener("DOMContentLoaded", function () {
+    // 1. Znajdujemy Twój przycisk pobierania PDF (szukamy po klasach z Twojego pliku CSS)
+    const btnDownload = document.querySelector(".btn-download-container, .btn-original, button, #download-pdf");
+
+    if (btnDownload) {
+        btnDownload.addEventListener("click", function () {
+            // 2. Dodajemy klasę ukrywającą adresy tuż przed wywołaniem generowania
+            document.body.classList.add("pobieranie-pdf");
+
+            // 3. Dajemy silnikowi przeglądarki ułamek sekundy na przetworzenie ukrycia
+            setTimeout(function () {
+                // 4. Usuwamy klasę zaraz po tym, jak proces generowania PDF ruszy
+                document.body.classList.remove("pobieranie-pdf");
+            }, 500); 
+        });
+    }
+});
     </script>
 </body>
 </html>
