@@ -398,7 +398,7 @@ margin-bottom: 20px;
 clear: both !important;
 }
 /* ==========================================================================
-   5. REGUŁY DRUKU I INTERAKCJI DLA LINKÓW (WERSJA ANGIELSKA)
+   5. REGUŁY DRUKU I INTERAKCJI DLA LINKÓW (WERSJA ANGIELSKA / POLSKA)
    ========================================================================== */
 
 /* --- SCREEN INTERACTION FOR LINKS --- */
@@ -413,6 +413,12 @@ p a:hover, li a:hover, td a:hover {
     color: #2563eb !important;         /* Bright blue on hover */
     text-decoration: underline !important; 
     text-underline-offset: 4px;        
+}
+
+/* --- REGUŁA EKRANOWA I CYFROWA PDF --- */
+/* Bezwzględne ukrycie surowych adresów URL na monitorach */
+.tylko-druk, .only-print {
+    display: none !important;
 }
 
 /* --- REGUŁY RESTRYKCYJNE WYŁĄCZNIE DLA FIZYCZNEGO WYDRUKU (PAPIER) --- */
@@ -442,19 +448,6 @@ p a:hover, li a:hover, td a:hover {
         text-decoration: none !important; 
         font-weight: 600 !important;      
         cursor: default !important;
-    }
-    
-    /* [ROZWIĄZANIE OSTATECZNE] Automatyczne generowanie adresów w nawiasach.
-       Ta reguła zadziała w oknie podglądu Ctrl+P, dodając adres URL po każdym linku w bibliografii.
-       Wymusza mniejszy rozmiar 0.85rem, czarny kolor oraz elegancką kursywę. */
-    .bibliography li a::after, .bibliografia li a::after {
-        content: " (Online access: " attr(href) ")" !important;
-        color: #333333 !important;
-        font-weight: normal !important;
-        font-size: 0.85rem !important;
-        font-style: italic !important;
-        text-decoration: none !important;
-        display: inline !important;
     }
     
     h1, h2, h3, h4 {
@@ -499,14 +492,28 @@ p a:hover, li a:hover, td a:hover {
         margin-top: 50px !important;
         clear: both !important;
     }
-}
- /* [NOWE] WYJĄTEK DLA POBIERANIA: Jeśli JavaScript doda do body klasę .pobieranie-pdf,
-       wtedy i tylko wtedy ukrywamy adresy, aby nie trafiły do zapisanego pliku PDF */
-    body.pobieranie-pdf .tylko-druk, 
-    body.pobieranie-pdf .only-print {
-        display: none !important;
+
+    /* [ZMIANA STRATEGII] Wymuszamy pokazanie adresów na papierze TYLKO wtedy, 
+       gdy gęstość ekranu/urządzenia wywołującego druk odpowiada fizycznym właściwościom 
+       renderowania systemowego (np. min-gęstość pikseli urządzeń klienckich). 
+       Wirtualne skrypty generujące "surowy" PDF na Netlify pomijają zaawansowane 
+       zapytania @media o rozdzielczość i gęstość urządzeń, co zablokuje napisy w pliku. */
+    @media (min-color-index: 0) and (min-resolution: 110dpi) {
+        .tylko-druk, .only-print {
+            display: inline !important;
+            font-size: 0.85rem !important;
+            font-style: italic !important;
+        }
+        .tylko-druk a, .only-print a {
+            color: #333333 !important;
+            text-decoration: none !important;
+            font-weight: normal !important;
+            font-size: 0.85rem !important;
+            font-style: italic !important;
+        }
     }
 }
+
 /* BLOK DLA CZCIONKI GLOBALNEJ */
 @import url('https://googleapis.com');
 body, h1, h2, h3, h4, th, td, .title, .btn {
@@ -1102,24 +1109,6 @@ td, th {
             if (event.key === 'Escape') { closeLightbox(); }
         });
 
-        // --- SKRYPT UKRYWANIA ADRESÓW PODCZAS KLIKNIĘCIA PRZYCISKU POBIERZ ---
-document.addEventListener("DOMContentLoaded", function () {
-    // 1. Znajdujemy Twój przycisk pobierania PDF (szukamy po klasach z Twojego pliku CSS)
-    const btnDownload = document.querySelector(".btn-download-container, .btn-original, button, #download-pdf");
-
-    if (btnDownload) {
-        btnDownload.addEventListener("click", function () {
-            // 2. Dodajemy klasę ukrywającą adresy tuż przed wywołaniem generowania
-            document.body.classList.add("pobieranie-pdf");
-
-            // 3. Dajemy silnikowi przeglądarki ułamek sekundy na przetworzenie ukrycia
-            setTimeout(function () {
-                // 4. Usuwamy klasę zaraz po tym, jak proces generowania PDF ruszy
-                document.body.classList.remove("pobieranie-pdf");
-            }, 500); 
-        });
-    }
-});
     </script>
 </body>
 </html>
