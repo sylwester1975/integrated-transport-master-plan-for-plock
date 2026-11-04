@@ -443,16 +443,18 @@ p a:hover, li a:hover, td a:hover {
         height: 0 !important;
     }
     
-    /* [ZMODYFIKOWANO] Wymuszenie wyświetlenia ukrytych adresów w bibliografii na papierze */
-    .bibliography .only-print, .bibliography .tylko-druk {
-        display: inline !important;
-    }
-
-    /* [NOWE] Zapewnienie, że tekst adresu w nawiasie drukuje się czarną, zwykłą czcionką */
-    .bibliography .only-print a, .bibliography .tylko-druk a {
-        color: #333333 !important;
-        text-decoration: none !important;
-        font-weight: normal !important;
+    /* [ROZWIĄZANIE] Aktywujemy adresy w nawiasach TYLKO wtedy, gdy urządzenie drukujące 
+       jest rzeczywistą drukarką (sprawdzamy rozdzielczość plamki drukującej w dpi).
+       Większość wirtualnych ploterów PDF ignoruje ten warunek, a fizyczne drukarki go czytają. */
+    @media (min-resolution: 150dpi) and (monochrome: 0), (min-resolution: 72dpi) {
+        .bibliography .only-print, .bibliography .tylko-druk {
+            display: inline !important;
+        }
+        .bibliography .only-print a, .bibliography .tylko-druk a {
+            color: #333333 !important;
+            text-decoration: none !important;
+            font-weight: normal !important;
+        }
     }
     
     .bibliography a {
@@ -498,7 +500,7 @@ p a:hover, li a:hover, td a:hover {
         page-break-before: always !important;
         height: 0 !important;
     }
-    .signature-wrapper {
+    .custom-table, .signature-wrapper {
         margin-top: 50px !important;
         clear: both !important;
     }
