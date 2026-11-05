@@ -507,7 +507,18 @@ p a:hover, li a:hover, td a:hover {
         font-style: italic !important;
     }
 }
+.tylko-druk {
+        display: none;
+    }
 
+    @media print {
+        /* ... Your other existing print styles ... */
+
+        /* Automatically show raw URLs in PDF/Print */
+        .tylko-druk {
+            display: inline !important;
+        }
+    }
 /* BLOK DLA CZCIONKI GLOBALNEJ */
 @import url('https://googleapis.com');
 body, h1, h2, h3, h4, th, td, .title, .btn {
@@ -1033,21 +1044,36 @@ td, th {
     This Master Plan and the attached conceptual drawings have been developed based on independent analysis as well as publicly available, official strategic documents, development plans, and topographic base maps from the following institutions:
 </p>
 
-<ul class="bibliography" style="padding-left: 20px; color: #333333;">
-    <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://drogi.gddkia.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">General Directorate for National Roads and&nbsp;Motorways – GDDKiA (available in Polish only)</a><span class="tylko-druk" style="font-size: 0.85rem !important; font-style: italic !important;"> (Online access: <a href="https://drogi.gddkia.gov.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">drogi.gddkia.gov.pl</a>)</span>&nbsp;– regarding current and prospective development plans for the expressway and motorway network in central Poland, road construction status maps, and corridor studies;
+<ul class="bibliografia" style="padding-left: 20px; color: #333333; list-style-type: disc;">
+    <li id="ref-en-1" style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://drogi.gddkia.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600; text-decoration: underline;">General Directorate for National Roads and Motorways (GDDKiA)</a><span style="font-size: 0.85rem; font-style: italic; color: #555555;"> [accessed: November 2026]</span><span class="tylko-druk" style="font-size: 0.85rem; font-style: italic; color: #000000;"> (Online access: drogi.gddkia.gov.pl)</span>&nbsp;– regarding current and prospective development plans for the expressway and motorway network in central Poland, road construction status maps, and corridor studies;
     </li>
-    <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://en.plk-sa.pl" target="_blank" style="color: #1a365d; font-weight: 600;">PKP Polskie Linie Kolejowe S.A. (PKP PLK)</a><span class="tylko-druk" style="font-size: 0.85rem !important; font-style: italic !important;"> (Online access: <a href="https://en.plk-sa.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">en.plk-sa.pl</a>)</span>&nbsp;– regarding the modernisation assumptions for the existing railway network as well as regional assumptions and consultations within the framework of the “Integrated Railway Network” (ZSK) project;
+    <li id="ref-en-2" style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://plk-sa.pl" target="_blank" style="color: #1a365d; font-weight: 600; text-decoration: underline;">PKP Polskie Linie Kolejowe S.A. (PKP PLK)</a><span style="font-size: 0.85rem; font-style: italic; color: #555555;"> [accessed: November 2026]</span><span class="tylko-druk" style="font-size: 0.85rem; font-style: italic; color: #000000;"> (Online access: plk-sa.pl)</span>&nbsp;– regarding the modernisation assumptions for the existing railway network as well as regional assumptions and consultations within the framework of the “Integrated Railway Network” (ZSK) project;
     </li>
-    <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://zsk.gov.pl/en" target="_blank" style="color: #1a365d; font-weight: 600;">Integrated Railway Network (ZSK Government Portal)</a><span class="tylko-druk" style="font-size: 0.85rem !important; font-style: italic !important;"> (Online access: <a href="https://zsk.gov.pl/en" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">zsk.gov.pl/en</a>)</span>&nbsp;– regarding the official, multi-year development plan and schematic layout of transport corridors, new railway lines, and intermodal terminals;
+    <li id="ref-en-3" style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://zsk.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600; text-decoration: underline;">Integrated Railway Network (ZSK Government Portal)</a><span style="font-size: 0.85rem; font-style: italic; color: #555555;"> [accessed: November 2026]</span><span class="tylko-druk" style="font-size: 0.85rem; font-style: italic; color: #000000;"> (Online access: zsk.gov.pl)</span>&nbsp;– regarding the official, multi-year development plan and schematic layout of transport corridors, new railway lines, and intermodal terminals;
     </li>
-    <li style="margin-bottom: 15px; text-align: justify;">
-        <a href="https://portpolska.pl/en" target="_blank" style="color: #1a365d; font-weight: 600;">Port Polska (Central Communication Port)</a><span class="tylko-druk" style="font-size: 0.85rem !important; font-style: italic !important;"> (Online access: <a href="https://portpolska.pl/en" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">portpolska.pl/en</a>)</span>&nbsp;– regarding the official strategic plans and corridors of the planned CMK North railway trunk line, the investment programme for the transport hub in Baranów, and associated strategic logistics centres;
+    <li id="ref-en-4" style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://portpolska.pl" target="_blank" style="color: #1a365d; font-weight: 600; text-decoration: underline;">Port Polska (Central Communication Port)</a><span style="font-size: 0.85rem; font-style: italic; color: #555555;"> [accessed: November 2026]</span><span class="tylko-druk" style="font-size: 0.85rem; font-style: italic; color: #000000;"> (Online access: portpolska.pl)</span>&nbsp;– regarding the official strategic plans and corridors of the planned CMK North railway trunk line, the investment programme for the transport hub in Baranów, and associated strategic logistics centres;
     </li>
-    <li style="margin-bottom: 0; text-align: justify;">
-        <a href="https://gov.pl" target="_blank" style="color: #1a365d; font-weight: 600;">Government and Local Administration Bodies Portal – Gov.pl (available in Polish only)</a><span class="tylko-druk" style="font-size: 0.85rem !important; font-style: italic !important;"> (Online access: <a href="https://gov.pl" target="_blank" style="color: inherit; text-decoration: none; font-size: 0.85rem !important; font-style: italic !important;">gov.pl</a>)</span>&nbsp;– regarding publicly available central development strategies (including the Ministry of Infrastructure), studies of development conditions, spatial development plans, and local development strategies for the energy transition and transport network of the Płock region.
+    <li id="ref-en-5" style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://gov.pl" target="_blank" style="color: #1a365d; font-weight: 600; text-decoration: underline;">Public Administration Organs (Gov.pl Government Portal)</a><span style="font-size: 0.85rem; font-style: italic; color: #555555;"> [accessed: November 2026]</span><span class="tylko-druk" style="font-size: 0.85rem; font-style: italic; color: #000000;"> (Online access: gov.pl)</span>&nbsp;– regarding publicly available national development strategies (including the Ministry of Infrastructure), national multi-year programmes (RPBDK, KPK), and the Polish Hydrogen Strategy (PSW2040);
+    </li>
+    <li id="ref-en-6" style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://sejm.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600; text-decoration: underline;">Sejm of the Republic of Poland – Environmental Protection Law (Title IV)</a><span style="font-size: 0.85rem; font-style: italic; color: #555555;"> [accessed: November 2026]</span><span class="tylko-druk" style="font-size: 0.85rem; font-style: italic; color: #000000;"> (Online access: isap.sejm.gov.pl)</span>&nbsp;– constituting the national implementation of the EU SEVESO III Directive regarding the control of major-accident hazards involving dangerous substances;
+    </li>
+    <li id="ref-en-7" style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://www.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600; text-decoration: underline;">Municipal Headquarters of the State Fire Service in Płock</a><span style="font-size: 0.85rem; font-style: italic; color: #555555;"> [accessed: November 2026]</span><span class="tylko-druk" style="font-size: 0.85rem; font-style: italic; color: #000000;"> (Online access: gov.pl/web/kmpsp-plock)</span>&nbsp;– regarding External Operational and Rescue Plans for industrial chemical safety and civil crisis management zones under SEVESO III rygors;
+    </li>
+    <li id="ref-en-8" style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://nato.int" target="_blank" style="color: #1a365d; font-weight: 600; text-decoration: underline;">NATO Standardization Office (NSO)</a><span style="font-size: 0.85rem; font-style: italic; color: #555555;"> [accessed: November 2026]</span><span class="tylko-druk" style="font-size: 0.85rem; font-style: italic; color: #000000;"> (Online access: nso.nato.int)</span>&nbsp;– regarding military standardization agreements STANAG 2021 (Military Load Classification for bridges) and Allied Joint Publication doctrines (AJP-4 Logistics and IAMD active defense);
+    </li>
+    <li id="ref-en-9" style="margin-bottom: 15px; text-align: justify;">
+        <a href="https://europa.eu" target="_blank" style="color: #1a365d; font-weight: 600; text-decoration: underline;">European Union Law Repository (EUR-Lex)</a><span style="font-size: 0.85rem; font-style: italic; color: #555555;"> [accessed: November 2026]</span><span class="tylko-druk" style="font-size: 0.85rem; font-style: italic; color: #000000;"> (Online access: eur-lex.europa.eu)</span>&nbsp;– regarding Council Directive 92/43/EEC (Habitats Directive - IROPI procedure) and European Commission parameters for dual-use co-financing under CEF Transport Military Mobility;
+    </li>
+    <li id="ref-en-10" style="margin-bottom: 0; text-align: justify;">
+        <a href="https://sejm.gov.pl" target="_blank" style="color: #1a365d; font-weight: 600; text-decoration: underline;">Sejm of the Republic of Poland – Act on Homeland Defence</a><span style="font-size: 0.85rem; font-style: italic; color: #555555;"> [accessed: November 2026]</span><span class="tylko-druk" style="font-size: 0.85rem; font-style: italic; color: #000000;"> (Online access: isap.sejm.gov.pl)</span>&nbsp;– regarding institutional funding mechanisms for dual-use infrastructure through the national Armed Forces Support Fund (FWSZ).
     </li>
 </ul>
     
