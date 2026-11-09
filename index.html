@@ -493,31 +493,31 @@ p a:hover, li a:hover, td a:hover {
         clear: both !important;
     }
 
-    /* Wymuszamy bilne pokazanie adresów w trybie wydruku (w małej kursywie) */
+   /* Widok ekranowy: ukrywamy metryczki przeznaczone wyłącznie do druku */
+.tylko-druk, .only-print {
+    display: none;
+}
+
+/* Tryb wydruku / eksportu do PDF */
+@media print {
+    /* Wymuszamy pokazanie adresów w trybie wydruku (w małej kursywie) */
     .tylko-druk, .only-print {
         display: inline !important;
         font-size: 0.85rem !important;
         font-style: italic !important;
         color: #555555 !important;
     }
+
     .tylko-druk a, .only-print a {
         color: #555555 !important;
         text-decoration: none !important;
         font-weight: normal !important;
         font-size: 0.85rem !important;
         font-style: italic !important;
-        word-break: break-all !important; /* <-- Tutaj dodajemy łamanie długich linków */
+        overflow-wrap: anywhere !important;
+        word-break: break-word !important; /* Łamanie długich linków bez rozrywania krótkich słów */
+    }
 }
-    
-.tylko-druk {
-        display: none;
-    }
-
-        /* Automatically show raw URLs in PDF/Print */
-        .tylko-druk {
-            display: inline !important;
-        }
-    }
 /* BLOK DLA CZCIONKI GLOBALNEJ */
 @import url('https://googleapis.com');
 body, h1, h2, h3, h4, th, td, .title, .btn {
