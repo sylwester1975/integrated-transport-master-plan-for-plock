@@ -546,11 +546,26 @@ ul.bibliografia li:target {
     transition: background-color 0.4s ease;
 }
 
+/* Usunięcie kropek listy bibliograficznej (zastąpionych przez numery [1]-[12]) */
+ul.bibliografia {
+    list-style-type: none !important;
+    padding-left: 0 !important;
+}
+
 /* Dodatkowa przestrzeń pod listą wyłącznie na ekranie, aby umożliwić przewinięcie do końca */
 @media screen {
     ul.bibliografia {
         padding-bottom: 65vh;
     }
+}
+
+/* Podświetlenie aktywnego źródła po kliknięciu w przypis w tekście */
+ul.bibliografia li:target {
+    background-color: #e2ecf9 !important;
+    border-left: 4px solid #1a365d !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    display: block !important;
 }
 
 /* Czysty wygląd na wydruku i w pliku PDF */
@@ -563,7 +578,7 @@ ul.bibliografia li:target {
         border-left: none !important;
         padding: 0 !important;
     }
-}   
+}
 </style>
 </head>
 <body>
