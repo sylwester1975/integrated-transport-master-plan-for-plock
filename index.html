@@ -552,10 +552,29 @@ ul.bibliografia {
     padding-left: 0 !important;
 }
 
-/* Dodatkowa przestrzeń pod listą wyłącznie na ekranie, aby umożliwić przewinięcie do końca */
+/* Usunięcie odstępu pod samą listą i przeniesienie go na koniec całej strony (pod podpis) */
 @media screen {
     ul.bibliografia {
-        padding-bottom: 65vh;
+        padding-bottom: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    body {
+        padding-bottom: 65vh !important;
+    }
+}
+
+/* Wyzerowanie odstępu w trybie druku i PDF, aby nie tworzyć pustej strony */
+@media print {
+    body {
+        padding-bottom: 0 !important;
+    }
+    ul.bibliografia {
+        padding-bottom: 0 !important;
+    }
+    ul.bibliografia li:target {
+        background-color: transparent !important;
+        border-left: none !important;
+        padding: 0 !important;
     }
 }
 
