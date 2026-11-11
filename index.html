@@ -403,7 +403,7 @@ clear: both !important;
 
 /* --- SCREEN INTERACTION FOR LINKS --- */
 p a, li a, td a {
-    color: #1a365d !important;         /* Deep navy in rest te */
+    color: #1a365d !important;         /* Deep navy in rest state */
     text-decoration: none !important;  
     font-weight: 500;
     transition: color 0.2s ease;       
@@ -432,6 +432,7 @@ p a:hover, li a:hover, td a:hover {
         color: #333333 !important;
         margin: 0 !important;
         padding: 0 !important;
+        padding-bottom: 0 !important;
         font-size: 11pt;
         line-height: 1.6;
     }
@@ -442,14 +443,12 @@ p a:hover, li a:hover, td a:hover {
         opacity: 0 !important;
         height: 0 !important;
     }
-    
     .bibliography a, .bibliografia a {
         color: #1a365d !important;       
         text-decoration: none !important; 
         font-weight: 600 !important;      
         cursor: default !important;
     }
-    
     h1, h2, h3, h4 {
         break-after: avoid !important;
         page-break-after: avoid !important;
@@ -465,7 +464,6 @@ p a:hover, li a:hover, td a:hover {
         margin-top: 55px !important;
         padding-top: 0 !important;
     }
-    
     hr {
         break-after: avoid !important;
         page-break-after: avoid !important;
@@ -473,7 +471,6 @@ p a:hover, li a:hover, td a:hover {
         margin-bottom: 15px !important;
         background: #cbd5e0 !important;
     }
-    
     .highlight-box, .toc-box {
         padding: 15px !important;
     }
@@ -492,22 +489,12 @@ p a:hover, li a:hover, td a:hover {
         margin-top: 50px !important;
         clear: both !important;
     }
-}
-   /* Widok ekranowy: ukrywamy metryczki przeznaczone wyłącznie do druku */
-.tylko-druk, .only-print {
-    display: none;
-}
-
-/* Tryb wydruku / eksportu do PDF */
-@media print {
-    /* Wymuszamy pokazanie adresów w trybie wydruku (w małej kursywie) */
     .tylko-druk, .only-print {
         display: inline !important;
         font-size: 0.85rem !important;
         font-style: italic !important;
         color: #555555 !important;
     }
-
     .tylko-druk a, .only-print a {
         color: #555555 !important;
         text-decoration: none !important;
@@ -515,11 +502,19 @@ p a:hover, li a:hover, td a:hover {
         font-size: 0.85rem !important;
         font-style: italic !important;
         overflow-wrap: anywhere !important;
-        word-break: break-word !important; /* Łamanie długich linków bez rozrywania krótkich słów */
+        word-break: break-word !important;
+    }
+    ul.bibliografia {
+        padding-bottom: 0 !important;
+    }
+    ul.bibliografia li:target {
+        background-color: transparent !important;
+        border-left: none !important;
+        padding: 0 !important;
     }
 }
-/* BLOK DLA CZCIONKI GLOBALNEJ */
-@import url('https://googleapis.com');
+
+/* BLOK DLA CZCIONKI GLOBALNEJ I TABEL */
 body, h1, h2, h3, h4, th, td, .title, .btn {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
 } 
@@ -531,28 +526,15 @@ td, th {
     text-wrap: normal;
     vertical-align: top;
 }
- /* Styl listy bibliograficznej z numerami [1]-[12] zamiast kropek */
+
+/* ==========================================================================
+   6. STYL BIBLIOGRAFII, PRZEWIJANIA I PODŚWIETLENIA (EKRAN)
+   ========================================================================== */
 ul.bibliografia {
     list-style-type: none !important;
     padding-left: 0 !important;
 }
 
-/* Podświetlenie aktywnego źródła po kliknięciu w przypis w tekście */
-ul.bibliografia li:target {
-    background-color: #eef4fb;
-    border-left: 4px solid #1a365d;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background-color 0.4s ease;
-}
-
-/* Usunięcie kropek listy bibliograficznej (zastąpionych przez numery [1]-[12]) */
-ul.bibliografia {
-    list-style-type: none !important;
-    padding-left: 0 !important;
-}
-
-/* Usunięcie odstępu pod samą listą i przeniesienie go na koniec całej strony (pod podpis) */
 @media screen {
     ul.bibliografia {
         padding-bottom: 0 !important;
@@ -563,40 +545,13 @@ ul.bibliografia {
     }
 }
 
-/* Wyzerowanie odstępu w trybie druku i PDF, aby nie tworzyć pustej strony */
-@media print {
-    body {
-        padding-bottom: 0 !important;
-    }
-    ul.bibliografia {
-        padding-bottom: 0 !important;
-    }
-    ul.bibliografia li:target {
-        background-color: transparent !important;
-        border-left: none !important;
-        padding: 0 !important;
-    }
-}
-
-/* Podświetlenie aktywnego źródła po kliknięciu w przypis w tekście */
 ul.bibliografia li:target {
     background-color: #e2ecf9 !important;
     border-left: 4px solid #1a365d !important;
     padding: 8px 12px !important;
     border-radius: 4px !important;
     display: block !important;
-}
-
-/* Czysty wygląd na wydruku i w pliku PDF */
-@media print {
-    ul.bibliografia {
-        padding-bottom: 0 !important;
-    }
-    ul.bibliografia li:target {
-        background-color: transparent !important;
-        border-left: none !important;
-        padding: 0 !important;
-    }
+    transition: background-color 0.4s ease;
 }
 </style>
 </head>
