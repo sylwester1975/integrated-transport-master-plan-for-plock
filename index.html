@@ -531,6 +531,39 @@ td, th {
     text-wrap: normal;
     vertical-align: top;
 }
+ /* Styl listy bibliograficznej z numerami [1]-[12] zamiast kropek */
+ul.bibliografia {
+    list-style-type: none !important;
+    padding-left: 0 !important;
+}
+
+/* Podświetlenie aktywnego źródła po kliknięciu w przypis w tekście */
+ul.bibliografia li:target {
+    background-color: #eef4fb;
+    border-left: 4px solid #1a365d;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.4s ease;
+}
+
+/* Dodatkowa przestrzeń pod listą wyłącznie na ekranie, aby umożliwić przewinięcie do końca */
+@media screen {
+    ul.bibliografia {
+        padding-bottom: 65vh;
+    }
+}
+
+/* Czysty wygląd na wydruku i w pliku PDF */
+@media print {
+    ul.bibliografia {
+        padding-bottom: 0 !important;
+    }
+    ul.bibliografia li:target {
+        background-color: transparent !important;
+        border-left: none !important;
+        padding: 0 !important;
+    }
+}   
 </style>
 </head>
 <body>
