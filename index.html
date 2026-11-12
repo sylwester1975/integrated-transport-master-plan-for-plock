@@ -61,7 +61,7 @@
         h4 {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             color: #333333;
-            font-weight: 700; /* Zapienie słowa 'bold' twardą wartością liczbową */
+            font-weight: 700; /* Zastąpienie słowa 'bold' twardą wartością liczbową */
             font-size: 1.15rem;
             margin-top: 25px;
             margin-bottom: 15px;
@@ -108,7 +108,7 @@
             margin-bottom: 0 !important;
         }
         .highlight-box strong {
-            color: #1a365d; !important;
+            color: #1a365d !important;
         }
         .toc-box {
             background-color: #f7fafc;
@@ -207,33 +207,37 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background-color: #27374d; /* Systemowy grafit */
+            background-color: #1a365d; /* Ujednolicony głęboki granat w stanie spoczynku */
             color: #ffffff !important;
             text-decoration: none !important;
             font-size: 0.85rem;
             font-weight: bold;
             padding: 8px 16px;
             border-radius: 4px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
             margin-top: 5px;
-        }
-        .btn-download-png:hover {
-            background-color: #333333;
         }
         .btn-original {
             display: inline-block;
-            background-color: #1a365d;
+            background-color: #1a365d; /* Ujednolicony głęboki granat w stanie spoczynku */
             color: #ffffff !important;
             text-decoration: none !important;
             padding: 8px 16px;
             font-size: 0.85rem;
             font-weight: bold;
             border-radius: 4px;
-            transition: background-color 0.2s;
+            transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
             margin-top: 5px;
         }
-        .btn-original:hover {
-            background-color: #27374d;
+        .btn-original:hover, .btn-download-png:hover {
+            background-color: #2563eb !important; /* Królewski błękit po najechaniu myszką */
+            color: #ffffff !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+        .btn-original:focus-visible, .btn-download-png:focus-visible {
+            outline: 3px solid #1a365d !important;
+            outline-offset: 3px !important;
         }
         .lightbox {
             display: none;
@@ -263,8 +267,7 @@
             font-weight: bold;
             cursor: pointer;
         }
-        
-        html {
+html {
     scroll-behavior: smooth;
 }
 .btn-to-top {
@@ -286,11 +289,10 @@
     z-index: 999;
 }
 .btn-to-top:hover {
-    background-color: #2b6cb0;
+    background-color: #2563eb;
     color: #f8f9fa !important; /* ZMIANA: Strzałka zachowuje kolor tła strony po najechaniu */
     transform: scale(1.05);
 }
-
         /* ==========================================================================
            4. STRUKTURY SPECJALISTYCZNE I LISTY (EKRAN)
            ========================================================================== */
@@ -330,16 +332,16 @@
             width: 100%;
             text-align: left;
             font-family: inherit;
-            border: 2px solid #27374d;
+            border: 2px solid #1a365d;
         }
         .custom-table th, .custom-table td {
-            border: 1px solid #27374d;
+            border: 1px solid #1a365d;
             padding: 12px 10px;
             line-height: 1.5;
         }
         .custom-table th {
             background-color: #f2f2f2;
-            color: #27374d;
+            color: #1a365d;
             font-weight: bold;
         }
         .custom-table td strong {
