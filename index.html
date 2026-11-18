@@ -655,126 +655,43 @@
             }
             .map-section img {
                 break-after: avoid !important;
-Używaj kodu z rozwagą.
-page-break-after: avoid !important;
-max-height: 215mm !important;
-width: auto !important;
-}
-.page-break {
-display: block !important;
-clear: both !important;
-break-before: page !important;
-page-break-before: always !important;
-height: 0 !important;
-}
-.custom-table, .signature-wrapper {
-margin-top: 50px !important;
-clear: both !important;
-}
-.tylko-druk, .only-print {
-display: inline !important;
-font-size: 0.85rem !important;
-font-style: italic !important;
-color: #555555 !important;
-}
-.tylko-druk a, .only-print a {
-color: #555555 !important;
-text-decoration: none !important;
-font-weight: normal !important;
-font-size: 0.85rem !important;
-font-style: italic !important;
-overflow-wrap: anywhere !important;
-word-break: break-word !important;
-}
-ul.bibliografia, ul.bibliography {
-padding-bottom: 0 !important;
-}
-ul.bibliografia li:target, ul.bibliography li:target {
-background-color: transparent !important;
-border-left: none !important;
-padding: 0 !important;
-}
-.print-footer {
-display: block !important;
-visibility: visible !important;
-opacity: 1 !important;
-height: auto !important;
-margin-top: 50px !important;
-padding-top: 10px !important;
-border-top: 1px solid #cbd5e0 !important;
-font-size: 8.5pt !important;
-font-style: italic !important;
-color: #555555 !important;
-text-align: center !important;
-clear: both !important;
-}
-}            
-        /* ==========================================================================
-           8. DRUGA, BIAŁA BELKA NARZĘDZIOWA POD GÓRNYM PASKIEM
-           ========================================================================== */
-        .mp-sub-bar {
-            width: 100%;
-            background-color: #ffffff;
-            border-bottom: none !important;
-            box-shadow: 0 4px 12px -2px rgba(26, 54, 93, 0.12), 
-                        0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-            box-sizing: border-box;
-        }
-
-        .mp-sub-bar-inner {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 8px 20px;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            box-sizing: border-box;
-        }
-
-        .mp-sub-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-family: inherit;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: #1a365d !important;
-            background-color: #f1f5f9;
-            border: 1px solid #cbd5e0;
-            padding: 5px 12px;
-            border-radius: 4px;
-            text-decoration: none !important;
-            cursor: pointer;
-            line-height: normal;
-            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-        }
-
-        .mp-sub-btn:hover {
-            background-color: #e2e8f0;
-            border-color: #94a3b8;
-            text-decoration: none !important;
-        }
-
-        .mp-sub-btn-pdf {
-            background-color: #fff5f5;
-            color: #c53030 !important;
-            border-color: #feb2b2;
-        }
-
-        .mp-sub-btn-pdf:hover {
-            background-color: #fed7d7;
-            border-color: #fc8181;
-        }
-
-        .print-footer {
-            display: none;
-        }
-
-        @media print {
-            .mp-sub-bar {
-                display: none !important;
+                page-break-after: avoid !important;
+                max-height: 215mm !important;
+                width: auto !important;
+            }
+            .page-break {
+                display: block !important;
+                clear: both !important;
+                break-before: page !important;
+                page-break-before: always !important;
+                height: 0 !important;
+            }
+            .custom-table, .signature-wrapper {
+                margin-top: 50px !important;
+                clear: both !important;
+            }
+            .tylko-druk, .only-print {
+                display: inline !important;
+                font-size: 0.85rem !important;
+                font-style: italic !important;
+                color: #555555 !important;
+            }
+            .tylko-druk a, .only-print a {
+                color: #555555 !important;
+                text-decoration: none !important;
+                font-weight: normal !important;
+                font-size: 0.85rem !important;
+                font-style: italic !important;
+                overflow-wrap: anywhere !important;
+                word-break: break-word !important;
+            }
+            ul.bibliografia, ul.bibliography {
+                padding-bottom: 0 !important;
+            }
+            ul.bibliografia li:target, ul.bibliography li:target {
+                background-color: transparent !important;
+                border-left: none !important;
+                padding: 0 !important;
             }
             .print-footer {
                 display: block !important;
@@ -790,24 +707,7 @@ clear: both !important;
                 text-align: center !important;
                 clear: both !important;
             }
-            h1, h2, h3, h4, .toc-box, .map-section, ul.bibliografia li, ul.bibliography li {
-                scroll-margin-top: 0 !important;
-            }
-            h2, h3 {
-                margin-top: 30px !important;
-                padding-top: 0 !important;
-                margin-bottom: 15px !important;
-            }
-            @page {
-                margin: 18mm 15mm 20mm 15mm !important;
-                @bottom-center {
-                    content: "Page " counter(page) " / " counter(pages);
-                    font-family: 'Inter', sans-serif;
-                    font-size: 8.5pt;
-                    color: #555555;
-                }
-            }
-
+        }
         /* ==========================================================================
            9. EFEKT GŁĘBI I CIENIA 3D DLA GÓRNEJ BELKI ORAZ STOPKI
            ========================================================================== */
