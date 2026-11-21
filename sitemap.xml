@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://sitemaps.org">
   <url>
-    <loc>https://netlify.app</loc>
+    <loc>https://master-plan-for-plock.netlify.app/</loc>
     <lastmod>2026-11-19</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://netlify.appMaster-Plan-for-Plock.pdf</loc>
+    <loc>https://master-plan-for-plock.netlify.app/Master-Plan-for-Plock.pdf</loc>
     <lastmod>2026-11-19</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://netlify.appplock-transport-infrastructure.html</loc>
+    <loc>https://master-plan-for-plock.netlify.app/plock-transport-infrastructure.html</loc>
     <lastmod>2026-11-19</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://netlify.appexpressway-s60.html</loc>
+    <loc>https://master-plan-for-plock.netlify.app/expressway-s60.html</loc>
     <lastmod>2026-11-19</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://netlify.appstrategic-railway.html</loc>
+    <loc>https://master-plan-for-plock.netlify.app/strategic-railway.html</loc>
     <lastmod>2026-11-19</lastmod>
     <priority>0.8</priority>
   </url>
