@@ -1,0 +1,15 @@
+# Integrated Transport Master Plan for Płock
+
+> Concept for eliminating SPoF risks and building logistics and NATO military mobility resilience (MLC 150) in Płock (ORLEN S.A., PERN S.A.) for 2027–2037. Author: Sylwester Fiet (2026). Estimated CapEx: PLN 17.4–21.8 billion.
+
+## 5-Pillar Investment Package
+- **National Road Pillar (PLN 6.0–7.5 bn):** S60 Expressway (Kalisz–Płock–Zambrów) with a new Vistula bridge in Rydzyno.
+- **Local Road Pillar (PLN 2.2–2.8 bn):** Completion of Płock Ring Road with a new bridge in Maszewo, ADR segregation, and ORLEN logistics corridors.
+- **Railway Freight Pillar (PLN 4.5–5.5 bn):** Double-track electrified Płock Freight Bypass (western alignment) with a new bridge in Maszewo and links to CMK North / Line 33.
+- **Passenger-Emergency Railway Pillar (PLN 3.2–4.0 bn):** Line 33 upgrade/electrification (Kutno–Trzepowo), new Vistula crossing, orbital agglomeration rail, and decommissioning of tracks on Piłsudski Bridge.
+- **Intermodal Hub (PLN 1.5–2.0 bn):** Class IV inland waterway port (E40) on Włocławek Reservoir integrated with Port Polska in Baranów.
+
+## Structure and Links
+- [Full Text of the Master Plan for Płock](https://master-plan-for-plock.netlify.app/) (9 sections, CapEx breakdown, risk matrix).
+- [Figure 1: Transport Layout](https://master-plan-for-plock.netlify.app/plock-transport-infrastructure.html) | [Figure 2: S60 Expressway](https://master-plan-for-plock.netlify.app/expressway-s60.html) | [Figure 3: Strategic Rail](https://master-plan-for-plock.netlify.app/strategic-railway.html)
+- [Wersja polska](https://masterplan-dla-plocka.netlify.app/)
