@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://master-plan-for-plock.netlify.app/sitemap.xml
+Sitemap: https://en.masterplan-plock.org/sitemap.xml
